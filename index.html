@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miles Front End Challenge</title>
+
+</head>
+
+
+<style>
+    #div1,
+    #div2,
+    #div3,
+    #div4,
+    #div5,
+    .divcommon {
+        float: left;
+        background-color:darkorchid;
+        width: 7em;
+        height: 2.5em;
+        margin: 0.5em;
+        padding: 0.75em;
+        border: 1px solid black;
+        display: inline-block
+    }
+
+    .wrapper {
+        text-align: center;
+    }
+</style>
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        //category 1 default
+        var div1content = document.getElementById("div1");
+        var cln = document.getElementById("drag1").cloneNode(true);
+        var img = cln;
+        div1content.querySelectorAll('*').forEach(n => n.remove());
+        div1content.appendChild(img);
+        //category 1 default
+        var div3content = document.getElementById("div3");
+        var cln3 = document.getElementById("drag2").cloneNode(true);
+        var img3 = cln3;
+        div3content.querySelectorAll('*').forEach(n => n.remove());
+        div3content.appendChild(img3);
+        //category 1 default
+        var div4content = document.getElementById("div4");
+        var cln4 = document.getElementById("drag3").cloneNode(true);
+        var img4 = cln4;
+        div4content.querySelectorAll('*').forEach(n => n.remove());
+        div4content.appendChild(img4);
+        //category 1 default
+        var div5content = document.getElementById("div5");
+        var cln5 = document.getElementById("drag4").cloneNode(true);
+        var img5 = cln5;
+        div5content.querySelectorAll('*').forEach(n => n.remove());
+        div5content.appendChild(img5);
+    }
+    function removecoupon(elem) {
+        console.log("I am here");
+        var parentId = elem.parentNode.id;
+        var parentNode = document.getElementById(parentId);
+        //parentNode.removeChild(parentNode.childNodes[1]);
+        //console.log("0"+parentNode.childNodes[0]);
+        //console.log("1"+parentNode.childNodes[1]);
+        // parentNode.childNodes[0].innerHTML ="";
+        //console.log("0"+parentNode.childNodes[0]);
+        //console.log("1"+parentNode.childNodes[1]);
+        //chilNode=parentNode.childNodes[0];
+        // parentNode.innerText="x";
+        var cln5 = document.getElementById("universal").cloneNode(true);
+        parentNode.querySelectorAll('*').forEach(n => n.remove());
+        cln5.style.visibility = "visible";
+        parentNode.appendChild(cln5);
+        // document.createElement(p);
+    }
+    const Datastore=require('nedb')
+
+    const database=new Datastore('database.db');
+    database.loadDatabase();
+
+</script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="div2">Rewards</div>
+        <div id="div2">C1</div>
+        <div id="div2">C2</div>
+        <div id="div2">C3</div>
+        <div id="div2">C4</div>
+        <div id="div2">C5</div>
+        <div style="clear: left">
+            <!-- Content... -->
+        </div>
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">Reward 1 </p>
+        </div>
+        <div id="cl1" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl2" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl3" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl4" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl5" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"><button style="float: right;"
+                onclick="removecoupon(this)">x</button> </div>
+        <div style="clear: left">
+            <!-- Content... -->
+        </div>
+        <div id="div3" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p draggable="true" ondragstart="drag(event)" id="drag2" width="88" height="31">Reward 2</p>
+        </div>
+
+        <div id="cl6" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl7" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl8" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl9" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl10" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div style="clear: left">
+            <!-- Content... -->
+        </div>
+        <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p draggable="true" ondragstart="drag(event)" id="drag3" width="88" height="31">Reward 3</p>
+        </div>
+        <div id="cl11" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl12" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl13" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl14" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl15" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div style="clear: left">
+            <!-- Content... -->
+        </div>
+        <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p draggable="true" ondragstart="drag(event)" id="drag4" width="88" height="31">Reward 4</p>
+        </div>
+        <div id="cl16" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl17" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl18" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl19" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <div id="cl20" class="divcommon" ondrop="drop(event)" ondragover="allowDrop(event)"> <button
+                style="float: right;" onclick="removecoupon(this)">x</button> </div>
+        <button style="float: right;visibility: hidden;" id="universal" onclick="removecoupon(this)">x</button>
+    </div>
+</body>
+
+</html>
